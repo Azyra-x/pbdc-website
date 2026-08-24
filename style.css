@@ -37,23 +37,38 @@ body {
 
 header {
     position: absolute;
+
     width: 100%;
+
     z-index: 10;
+
+    border-bottom: 1px solid rgba(37, 37, 42, 0.25);
+
+    background: rgba(248, 248, 246, 0.35);
+
+    backdrop-filter: blur(8px);
 }
 
 nav {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
-    padding: 25px 6%;
+    padding: 18px 6%;
 }
 
 .logo {
     font-size: 1.5rem;
+
     font-weight: bold;
+
     color: var(--dark);
+
     text-decoration: none;
+
+    letter-spacing: 2px;
 }
 
 .nav-links {
@@ -324,9 +339,13 @@ footer {
 
         align-items: flex-start;
 
-        gap: 15px;
+        gap: 12px;
 
-        padding: 20px 8%;
+        padding: 18px 8%;
+    }
+
+    .logo {
+        font-size: 1.3rem;
     }
 
     .nav-links {
@@ -336,11 +355,11 @@ footer {
 
         flex-wrap: wrap;
 
-        gap: 12px 18px;
+        gap: 8px 16px;
     }
 
     .nav-links a {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
 
         letter-spacing: 1.5px;
     }
@@ -1232,4 +1251,716 @@ footer {
     font-weight: bold;
 
     color: var(--purple);
+}
+
+/* =========================
+   COMMITTEE PAGE
+========================= */
+
+
+/* -------------------------
+   SECTION
+-------------------------- */
+
+.committee-section {
+    padding: 120px 5vw;
+    position: relative;
+}
+
+.committee-section-heading {
+    margin-bottom: 60px;
+}
+
+.committee-section-heading h2 {
+    max-width: 700px;
+}
+
+
+/* -------------------------
+   COMMITTEE GRID
+-------------------------- */
+
+.committee-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 45px;
+
+    align-items: start;
+}
+
+
+/* -------------------------
+   MEMBER CARD
+-------------------------- */
+
+.committee-card {
+    position: relative;
+
+    background: #f7f7f5;
+
+    padding: 18px;
+
+    border: 1px solid rgba(37, 37, 42, 0.25);
+
+    box-shadow:
+        12px 12px 0 rgba(37, 37, 42, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Slightly different rotations
+   to create the photo-wall feeling */
+
+.committee-card:nth-child(odd) {
+    transform: rotate(-1.5deg);
+}
+
+.committee-card:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+
+/* Hover */
+
+.committee-card:hover {
+    transform: translateY(-8px) rotate(0deg);
+
+    box-shadow:
+        16px 18px 0 rgba(37, 37, 42, 0.18);
+}
+
+
+/* -------------------------
+   PHOTO FRAME
+-------------------------- */
+
+.member-photo {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: #b9d8e8;
+
+    border: 10px solid #ffffff;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(37, 37, 42, 0.15);
+}
+
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.committee-card:hover .member-photo img {
+    transform: scale(1.04);
+}
+
+
+/* -------------------------
+   MEMBER INFORMATION
+-------------------------- */
+
+.member-info {
+    padding: 22px 8px 8px;
+}
+
+
+.member-role {
+    margin: 0 0 8px;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+
+    color: var(--purple);
+}
+
+
+.member-info h3 {
+    margin: 0;
+
+    font-size: 2rem;
+
+    letter-spacing: 1px;
+}
+
+
+/* -------------------------
+   PRESIDENT
+-------------------------- */
+
+.president-grid {
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.featured-member {
+    width: min(430px, 100%);
+}
+
+
+/* Make Nana's frame slightly
+   more prominent */
+
+.featured-member .member-photo {
+    aspect-ratio: 4 / 5;
+}
+
+
+.featured-member .member-info h3 {
+    font-size: 2.5rem;
+}
+
+
+/* -------------------------
+   COMMITTEE MESSAGE
+-------------------------- */
+
+.committee-message {
+    padding: 140px 5vw;
+
+    max-width: 850px;
+}
+
+
+.committee-message h2 {
+    margin-bottom: 30px;
+}
+
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 800px) {
+
+    .committee-section {
+        padding: 80px 6vw;
+    }
+
+
+    .committee-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+    }
+
+
+    .featured-member {
+        width: min(400px, 100%);
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .committee-section {
+        padding: 70px 6vw;
+    }
+
+
+    .committee-section-heading {
+        margin-bottom: 40px;
+    }
+
+
+    .committee-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .committee-card,
+    .committee-card:nth-child(odd),
+    .committee-card:nth-child(even) {
+        transform: rotate(0deg);
+    }
+
+
+    .committee-card:hover {
+        transform: translateY(-5px);
+    }
+
+
+    .featured-member {
+        width: 100%;
+    }
+
+
+    .member-info h3 {
+        font-size: 1.8rem;
+    }
+
+}
+
+/* =========================
+   COMMITTEE VISUAL ACCENTS
+========================= */
+
+.committee-section {
+    overflow: hidden;
+}
+
+
+/* Soft background decoration */
+
+.committee-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    background: rgba(180, 150, 220, 0.18);
+
+    border-radius: 50%;
+
+    top: 80px;
+    right: -120px;
+
+    z-index: 0;
+}
+
+
+/* Another soft blue shape */
+
+.committee-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    background: rgba(130, 180, 220, 0.15);
+
+    transform: rotate(20deg);
+
+    bottom: 50px;
+    left: -100px;
+
+    z-index: 0;
+}
+
+
+/* Keep actual content above decorations */
+
+.committee-section-heading,
+.committee-grid {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* -------------------------
+   CARD ACCENT COLORS
+-------------------------- */
+
+.committee-card:nth-child(1) {
+    border-top: 5px solid rgba(160, 120, 210, 0.8);
+}
+
+
+.committee-card:nth-child(2) {
+    border-top: 5px solid rgba(220, 140, 190, 0.8);
+}
+
+
+.committee-card:nth-child(3) {
+    border-top: 5px solid rgba(130, 170, 220, 0.8);
+}
+
+
+/* -------------------------
+   PHOTO FRAME DETAILS
+-------------------------- */
+
+.member-photo {
+    position: relative;
+}
+
+
+/* subtle blue inner glow */
+
+.member-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    box-shadow:
+        inset 0 0 35px rgba(100, 150, 200, 0.18);
+
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   FEATURED PRESIDENT
+-------------------------- */
+
+.featured-member {
+    border-top: 6px solid rgba(180, 130, 220, 0.9);
+
+    box-shadow:
+        14px 14px 0 rgba(150, 120, 190, 0.18);
+}
+
+/* =========================
+   COMMITTEE TYPOGRAPHY
+========================= */
+
+.committee-header {
+    padding-bottom: 100px;
+}
+
+
+.committee-header h1 {
+    max-width: 850px;
+
+    margin-bottom: 30px;
+}
+
+
+/* Section headings */
+
+.committee-section-heading .section-label {
+    margin-bottom: 20px;
+}
+
+
+.committee-section-heading h2 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+
+    margin: 0;
+
+    max-width: 800px;
+}
+
+
+/* Give each major section
+   a little more breathing room */
+
+.committee-section + .committee-section {
+    padding-top: 60px;
+}
+
+
+/* Member names */
+
+.member-info h3 {
+    letter-spacing: 2px;
+
+    line-height: 1;
+}
+
+
+/* Roles */
+
+.member-role {
+    line-height: 1.4;
+
+    max-width: 260px;
+}
+
+
+/* Committee message */
+
+.committee-message {
+    margin-top: 40px;
+}
+
+.committee-message h2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+}
+
+/* =========================
+   COMMITTEE SCRAPBOOK DETAILS
+========================= */
+
+
+/* -------------------------
+   DECORATION BEHIND CARDS
+-------------------------- */
+
+.committee-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 110px;
+
+    z-index: -1;
+
+    opacity: 0.75;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+/* Purple accent */
+
+.committee-card:nth-child(3n + 1)::before {
+    background: rgba(170, 125, 220, 0.45);
+
+    top: -25px;
+    right: -25px;
+
+    transform: rotate(12deg);
+}
+
+
+/* Pink accent */
+
+.committee-card:nth-child(3n + 2)::before {
+    background: rgba(225, 145, 195, 0.45);
+
+    bottom: -25px;
+    left: -25px;
+
+    transform: rotate(-10deg);
+}
+
+
+/* Blue accent */
+
+.committee-card:nth-child(3n)::before {
+    background: rgba(120, 175, 225, 0.45);
+
+    top: 35%;
+    left: -30px;
+
+    transform: rotate(18deg);
+}
+
+
+/* Decoration reacts to hover */
+
+.committee-card:hover::before {
+    transform: rotate(0deg) scale(1.08);
+
+    opacity: 0.9;
+}
+
+/* -------------------------
+   PRESIDENT DECORATION
+-------------------------- */
+
+.featured-member::before {
+    width: 120px;
+
+    height: 160px;
+
+    background: rgba(175, 135, 225, 0.4);
+
+    top: -35px;
+
+    right: -35px;
+
+    transform: rotate(15deg);
+}
+
+
+.featured-member::after {
+    content: "✦";
+
+    position: absolute;
+
+    bottom: -25px;
+
+    left: -20px;
+
+    font-size: 3rem;
+
+    color: rgba(205, 145, 200, 0.8);
+
+    z-index: -1;
+
+    transition: transform 0.4s ease;
+}
+
+
+.featured-member:hover::after {
+    transform: rotate(20deg) scale(1.15);
+}
+
+/* -------------------------
+   SCRAPBOOK LABEL
+-------------------------- */
+
+.committee-card .member-info {
+    position: relative;
+}
+
+
+/* =========================
+   DYNAMIC SCRAPBOOK DECOR
+========================= */
+
+.committee-card {
+    position: relative;
+}
+
+
+/* -------------------------
+   WASHI TAPE
+-------------------------- */
+
+.committee-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 105px;
+    height: 25px;
+
+    background: rgba(190, 150, 225, 0.55);
+
+    top: -12px;
+    right: 35px;
+
+    transform: rotate(7deg);
+
+    z-index: -1;
+
+    clip-path: polygon(
+        0% 8%,
+        96% 0%,
+        100% 85%,
+        4% 100%
+    );
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.committee-card::after {
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 2.5rem;
+
+    color: rgba(177, 125, 210, 0.75);
+
+    bottom: -20px;
+    right: -15px;
+
+    transform: rotate(12deg);
+
+    z-index: -1;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+.committee-card:hover::after {
+    transform: rotate(25deg) scale(1.15);
+
+    opacity: 1;
+}
+
+@keyframes committeeReveal {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotate(var(--card-rotation));
+    }
+
+}
+
+
+.committee-card {
+    --card-rotation: 0deg;
+
+    animation:
+        committeeReveal
+        0.8s ease both;
+}
+
+
+.committee-card:nth-child(2) {
+    --card-rotation: -1.2deg;
+}
+
+
+.committee-card:nth-child(3) {
+    --card-rotation: 1.5deg;
+}
+
+
+.committee-card:nth-child(5) {
+    --card-rotation: 1deg;
+}
+
+
+.committee-card:nth-child(6) {
+    --card-rotation: -1.4deg;
+}
+
+.committee-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.committee-card:hover {
+    transform:
+        translateY(-8px)
+        rotate(var(--card-rotation));
+
+    box-shadow:
+        12px 16px 0 rgba(37, 37, 42, 0.15);
 }
